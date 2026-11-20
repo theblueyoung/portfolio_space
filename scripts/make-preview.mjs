@@ -37,7 +37,7 @@ for (const f of files) {
       .replace(/(["'(])\/images\//g, `$1${root}images/`)
       .replace(/href="\/(?!\/)/g, `href="${root}`)
       .replace(/<link rel="preload"[^>]*as="font"[^>]*\/>/g, "");
-    const nav = `<script>window.__PREVIEW_ROOT__=${JSON.stringify(root)};document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||a.target==="_blank")return;var h=a.getAttribute("href");if(/^(mailto:|https?:|#)/.test(h))return;var u=new URL(h,location.href);if(u.protocol!=="file:")return;e.preventDefault();e.stopImmediatePropagation();var p=u.pathname;if(p.endsWith("/"))p+="index.html";if(p===location.pathname&&u.hash){var t=document.getElementById(u.hash.slice(1));if(t)t.scrollIntoView({behavior:"smooth"});return;}location.href=p+u.hash;},true);</script>`;
+    const nav = `<script>window.__PREVIEW_ROOT__=${JSON.stringify(root)};document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||a.target==="_blank")return;var h=a.getAttribute("href");if(/^(mailto:|https?:|#)/.test(h))return;var u=new URL(h,location.href);if(u.origin!==location.origin&&u.protocol!=="file:")return;e.preventDefault();e.stopImmediatePropagation();var p=u.pathname;if(u.protocol==="file:"&&p.endsWith("/"))p+="index.html";if(p===location.pathname&&u.hash){var t=document.getElementById(u.hash.slice(1));if(t)t.scrollIntoView({behavior:"smooth"});return;}location.href=p+u.hash;},true);</script>`;
     s = s.replace("</head>", `${nav}</head>`);
     writeFileSync(f, s);
   }
