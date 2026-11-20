@@ -8,8 +8,8 @@
   --color-lavender: #c8b6ff;
   --color-lilac: #a99bff;
   --color-blush: #f4b9e3;
-  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
 }
 

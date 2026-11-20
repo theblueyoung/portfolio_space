@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Sora } from "next/font/google";
+// Fonts are bundled with the site (no Google Fonts download at build time).
+import "@fontsource-variable/inter";
+import "@fontsource-variable/sora";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap", weight: ["200", "300", "400", "500", "600"] });
 
 export const metadata: Metadata = {
   title: "Yooyoung Jeon — Interaction & UX/UI Designer",
@@ -16,7 +15,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en">
       <body className="grain">
         <a
           href="#main"
